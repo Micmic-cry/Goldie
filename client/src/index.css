@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Styles */
+@layer base {
+  body {
+    /* Apply base styles using standard CSS or theme() function */
+    background-color: theme('colors.brand-space-cadet'); /* Use theme() for custom colors */
+    color: theme('colors.brand-text-light');           /* Use theme() for custom colors */
+    font-family: theme('fontFamily.sans');             /* Use theme() for font stacks */
+
+    /* Keep standard CSS properties */
+    margin: 0; /* Example reset */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    /* Apply base font using theme() */
+    font-family: theme('fontFamily.serif');
+    /* Optional: Add other base heading styles using standard CSS */
+    /* font-weight: 700; */
+    /* margin-bottom: 1rem; */
+  }
+
+  /* Animation base opacity - needed for 'forwards' to work right */
+   [class*="animate-fade-in-up"] {
+     opacity: 0;
+   }
+}
+
+/* Custom Component Styles - This section is CORRECT */
+@layer components {
+  .btn-primary {
+    @apply inline-block bg-brand-avocado hover:bg-brand-avocado-dark text-brand-white font-semibold py-3 px-8 rounded-lg shadow-md transition duration-200 ease-in-out transform hover:-translate-y-0.5;
+  }
+  .btn-secondary {
+    @apply inline-block bg-brand-xanthous hover:brightness-110 text-brand-space-cadet font-semibold py-2 px-6 rounded-lg shadow-sm transition duration-200 ease-in-out transform hover:-translate-y-0.5;
+  }
+   .container {
+    @apply mx-auto px-6;
+  }
+}
+
+/* Optional: Add custom utilities here if needed */
+/* @layer utilities { ... } */
